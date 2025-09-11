@@ -7,7 +7,7 @@
     "dev": "nodemon",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "jest tsx --passWithNoTests --detectOpenHandles --runInBand",
+    "test": "jest --passWithNoTests --detectOpenHandles --runInBand",
     "test:watch": "jest --watch"
   },
   "repository": {
