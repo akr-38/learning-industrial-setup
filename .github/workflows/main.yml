@@ -1,0 +1,21 @@
+name: CI (Docker)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  docker-build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t my-app:test -f Dockerfile.ci .
+
+      - name: Run tests inside container
+        run: docker run --rm my-app:test npm run test
