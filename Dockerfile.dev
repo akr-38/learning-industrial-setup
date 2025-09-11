@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install dependencies
+
+COPY package*.json .
+RUN npm install
+
+# Copy the rest of the files (optional; volumes will override src)
+COPY tsconfig.json .
+COPY nodemon.json .
+
+# Expose port
+EXPOSE 3000
+
+# Run in dev mode with watch
+CMD ["npm", "run", "dev"]

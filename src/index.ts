@@ -1,0 +1,8 @@
+// src/index.ts
+import app from "./server.js"; // notice `.js` because in ESM build, ts → js
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
